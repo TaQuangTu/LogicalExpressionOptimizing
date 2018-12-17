@@ -19,7 +19,11 @@ private:
 		}
 		for (int i = 0; i < literals.size(); i++)
 		{
-			if (aResult.size() == 0 && literals[i] == '+') continue;
+			if (aResult.size() == 0)
+			{
+			    if (literals[i] == '+'&& literals[i] == '\'') continue;
+			}
+			
 			//else
 			aResult.push_back(literals[i]);
 			if (literals[i] == '+') 
@@ -35,11 +39,14 @@ private:
 		}
 	}
 public:
-	vector<Expression> getSimpliers(Expression& expr)
+	static vector<Expression> getSimpliers(Expression& expr)
 	{
 		vector<char> literals = Utility::getLiterals(expr);
+		vector<Expression> allResults;
+		string aResult;
 		literals.push_back('+');
 		literals.push_back('\'');
-
+		backtrack(allResults, aResult, expr, literals);
+		return allResults;
 	}
 };
