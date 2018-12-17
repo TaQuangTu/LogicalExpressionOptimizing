@@ -37,7 +37,12 @@ public:
 		//cost = numberOfLiteral + numberOf AND + numberOf OR operators
 		return 0; //return cost
 	}
-	bool isLegalExpression()
+	static bool isValidStringExpression(string stringOfExpr)
+	{
+		//fimiliar to the function "bool isLegalExpression()" above but check for string, not for Expression object
+		return false;//or true
+	}
+	bool isValidExpression()
 	{
 		//EX: if the string of expression is "AB++C" then return false
 		//"AA+BCC+D'G+G" --> return true;
@@ -45,10 +50,5 @@ public:
 		//"AA+'H"-->return false
 		//and some case like that
 		return false; //or false
-	}
-	bool isLegalStringExpression(string stringOfExpr)
-	{
-		//fimiliar to the function "bool isLegalExpression()" above but check for string, not for Expression object
-		return false;//or true
 	}
 };
