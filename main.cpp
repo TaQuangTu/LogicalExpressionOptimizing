@@ -4,6 +4,13 @@ using namespace std;
 
 int main()
 {
-	string 
-	Expression 
+	while (true)
+	{
+		cout << "Type Logical Expression: ";
+		Expression expr;
+		cin >> expr;
+		vector<Expression> optimizeds = ExpressionOptimizer::getSimpliers(Expression(expr));
+		Utility::showVector(optimizeds);
+	}
+	return 0;
 }

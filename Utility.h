@@ -39,5 +39,10 @@ public:
 	{
 		sort(expressions.begin(), expressions.end(), Expression::compareSize);
 	}
+	static void showVector(vector<Expression>& expressions)
+	{
+		for (int i = 0; i < expressions.size();i++)
+		cout << expressions[i] << endl;
+	}
 	//and more static methods goes here 
 };

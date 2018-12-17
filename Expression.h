@@ -12,7 +12,7 @@ class Expression
 private:
 	string strExpression;
 public:
-	Expression(string newEx)
+	Expression(string newEx="")
 	{
 		this->strExpression = newEx;
 	}
@@ -54,5 +54,13 @@ public:
 	static bool compareSize(Expression a, Expression b)
 	{
 		return a.getString().size() > b.getString().size();
+	}
+	friend ostream& operator<<(ostream& out, Expression&b)
+	{
+		return out << b.getString();
+	}
+	friend istream& operator>>(istream& iu, Expression&b)
+	{
+		return in >> b.strExpression;
 	}
 };
