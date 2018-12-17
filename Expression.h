@@ -39,7 +39,7 @@ public:
 	}
 	static bool isValidStringExpression(string stringOfExpr)
 	{
-		//fimiliar to the function "bool isLegalExpression()" above but check for string, not for Expression object
+		//fimiliar to the function "bool isLegalExpression()" below but check for string, not for Expression object
 		return false;//or true
 	}
 	bool isValidExpression()
