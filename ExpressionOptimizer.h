@@ -1,7 +1,5 @@
-#ifndef UTILITY
 #include"Utility.h"
-#define ULTILITY
-#endif
+
 using namespace std;
 class ExpressionOptimizer
 {
@@ -47,6 +45,7 @@ public:
 		literals.push_back('+');
 		literals.push_back('\'');
 		backtrack(allResults, aResult, expr, literals);
+		Utility::sortInDescendingSize(allResults);
 		return allResults;
 	}
 };

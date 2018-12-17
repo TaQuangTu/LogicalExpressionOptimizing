@@ -1,11 +1,3 @@
-#ifndef STRING
-#include<string>
-#define STRING
-#endif
-#ifndef MAP
-#include<map>
-#define MAP
-#endif
 #ifndef VECTOR
 #include<vector>
 #define VECTOR
@@ -14,7 +6,7 @@
 #include"Expression.h"
 #define EXPRESSION
 #endif
-
+#include<algorithm>
 using namespace std;
 class Utility
 {
@@ -42,6 +34,10 @@ public:
 		// map<char,bool> m7 = {'B'->1,'C'->1,'D'->0}
 		// map<char,bool> m8 = {'B'->1,'C'->1,'D'->1}
 		return possibleInput;
+	}
+	static void sortInDescendingSize(vector<Expression>& expressions)
+	{
+		sort(expressions.begin(), expressions.end(), Expression::compareSize);
 	}
 	//and more static methods goes here 
 };

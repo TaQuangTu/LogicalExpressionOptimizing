@@ -51,4 +51,8 @@ public:
 		//and some case like that
 		return false; //or false
 	}
+	static bool compareSize(Expression a, Expression b)
+	{
+		return a.getString().size() > b.getString().size();
+	}
 };
