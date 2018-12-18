@@ -29,27 +29,42 @@ public:
 	}
 	bool equals(Expression& expr)
 	{
-		//check if "this" equals to expr
-		return true; //or false
+		//Incomplete function
+
+		vector<char> literals1 = Utility::getLiterals(*this);
+		vector<char> literals2 = Utility::getLiterals(expr);
+		vector<map<char, bool>> sets = Utility::getFullInput(literals1);
+		for (auto m : sets)
+		{
+			if (getValue(m) != expr.getValue(m)) return false;
+		}
+		return true; 
 	}
 	int getCost()
 	{
-		//cost = numberOfLiteral + numberOf AND + numberOf OR operators
-		return 0; //return cost
+		int cost = 0;
+		for (int i = 0; i < this->strExpression.size(); i++)
+		{
+			if (strExpression[i] != '\'') cost++;
+		}
+		return cost;
 	}
 	static bool isValidStringExpression(string stringOfExpr)
 	{
-		//fimiliar to the function "bool isLegalExpression()" below but check for string, not for Expression object
-		return false;//or true
+		//add some cases for closely checking
+		if (Utility::contains(stringOfExpr, "++")) return false;
+		if (Utility::contains(stringOfExpr, "+ +")) return false;
+		if (Utility::contains(stringOfExpr, "+'")) return false;
+		if (Utility::contains(stringOfExpr, "+ '")) return false;
+		if (Utility::contains(stringOfExpr, "''")) return false;
+		if (stringOfExpr[0] == '+') return false;
+		if (stringOfExpr[0] == '\'') return false;
+		if (stringOfExpr[stringOfExpr.size()-1] == '+') return false;
+		return true;
 	}
 	bool isValidExpression()
 	{
-		//EX: if the string of expression is "AB++C" then return false
-		//"AA+BCC+D'G+G" --> return true;
-		//"AA+" --> return false
-		//"AA+'H"-->return false
-		//and some case like that
-		return false; //or false
+		return isValidStringExpression(this->strExpression);
 	}
 	static bool compareSize(Expression a, Expression b)
 	{
