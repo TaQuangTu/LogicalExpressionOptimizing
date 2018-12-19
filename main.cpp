@@ -6,11 +6,17 @@ int main()
 {
 	while (true)
 	{
+		string str;
 		cout << "Type Logical Expression: ";
-		Expression expr;
-		cin >> expr;
-		vector<Expression> optimizeds = ExpressionOptimizer::getSimpliers(Expression(expr));
-		Utility::showVector(optimizeds);
+		getline(cin, str);
+		Expression expr(str);
+
+		vector<Expression> optimizeds = ExpressionOptimizer::getSimpliers(expr);
+        
+		for (int i = 0; i < optimizeds.size(); i++)
+		{
+			cout << optimizeds[i]<< endl;
+		}
 	}
 	return 0;
 }
