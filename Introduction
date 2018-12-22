@@ -1,0 +1,4 @@
+Minimizing boolean expressions is of great pragmatic importance. In hardware, it is used to reduce the number of transistors in microprocessors. In software, it is used to speed up computations.
+I provided two ways to optimize an logical expression( using C++ and Javascript). 
+
+Try now at: tatait.cf 
